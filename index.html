@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Nombre mystère </title>
+</head>
+<body>
+<script>
+    function ExerciceJS2()
+{
+  console.clear();
+  var tries = 0;
+  var min = "A";
+  var found = false;
+  while(isNaN(min))
+  {
+    min = prompt("Entre la valeur mini", 0);
+  }
+  var max = "A";
+  while (isNaN(max))
+  {
+    max = prompt("Entre la valeur max", 9);
+  }
+  if (min > max)
+  {
+    var between = min;
+    min = max;
+    max = between;
+  }
+  var answer = Math.floor(Math.floor(min) + (Math.random() * (Math.floor(max) - Math.floor(min))));
+  // a décommenter pour avoir la réponse AVANT de jouer
+  //alert("la réponse est "+answer);
+  while (tries < 3 && !found)
+  {
+    var guess = prompt("Quelle est votre proposition?");
+    tries++;
+    if (guess> answer)
+    {
+      alert("Trop grand");
+    }
+    if (guess < answer)
+    {
+      alert("Trop petit");
+    }
+    if (guess == answer)
+    {
+      alert("Bravo!")
+      tries=3;
+      found=true;
+    }
+  }
+  if (found==false)
+  {
+    alert("Vraiment dommage! La réponse était: "+answer);
+  }
+}
+
+ExerciceJS2();
+
+
+    </script>
+</body>
+</html>
